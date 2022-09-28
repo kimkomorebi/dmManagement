@@ -6,7 +6,21 @@ public class DmList {
 	private String author;// 고객 성명
 	private String date;//발송일
 	private String contents;//내용
+	private String dept;//부서
+	private String grade;//고객 등급
 	private String campain;//캠페인 구분
+	public String getDept() {
+		return dept;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
 	public Integer getDmno() {
 		return dmno;
 	}

@@ -27,7 +27,8 @@
 					<%
 						for(DmList l : list){
 					%>
-					<form action="">
+					<form action="DmHistoryUpdateDeleteView">
+						<input type="hidden" value="<%= l.getDmno() %>" name="DMNO"/>
 						<tr>
 							<td><%= l.getDmno() %></td>
 							<td><%= l.getCustid() %></td>
@@ -47,7 +48,7 @@
 					<tr>
 						<td colspan="7" align="center">
 							<input type="button" value="고객 정보 등록" onClick="customer()"/>
-							<input type="button" value="DM 발송 정보 등록" onClick="sendDm()"/>
+							<input type="button" value="DM 발송 정보 등록" onClick="sendDmListRegister()"/>
 						</td>
 					</tr>
 				</table>
@@ -57,6 +58,9 @@
 	<script type="text/javascript">
 		function customer(){
 			location.href="custInfoRegister.jsp";
+		}
+		function sendDmListRegister(){
+			location.href="dmDeptSelect.do";
 		}
 	</script>
 </body>
