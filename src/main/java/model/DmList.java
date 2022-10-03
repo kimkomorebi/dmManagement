@@ -9,6 +9,20 @@ public class DmList {
 	private String dept;//부서
 	private String grade;//고객 등급
 	private String campain;//캠페인 구분
+	private String area; // 지역
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	public Integer getAreaCount() {
+		return areaCount;
+	}
+	public void setAreaCount(Integer areaCount) {
+		this.areaCount = areaCount;
+	}
+	private Integer areaCount; //지역 건수
 	public String getDept() {
 		return dept;
 	}

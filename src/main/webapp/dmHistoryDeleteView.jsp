@@ -14,7 +14,9 @@
 		<%@ include file="header.jsp" %>
 	<section>
 		<div align="center">
-			<form action="">
+			<form action="deleteDmList.do" method="post">
+				<input type="hidden" value="<%= dl.getDmno() %>" name="DMNO"/>
+				<input type="hidden" value="<%= dl.getCustid() %>" name="CUSTID"/>
 				<table border="1">
 					<tr>
 						<th>발송번호</th>

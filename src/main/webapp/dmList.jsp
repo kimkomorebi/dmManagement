@@ -10,6 +10,7 @@
 <body>
 	<%
 		ArrayList<DmList> list = (ArrayList<DmList>)request.getAttribute("LIST");
+		ArrayList<DmList> area = (ArrayList<DmList>)request.getAttribute("AREA");
 	%>
 	<%@ include file="header.jsp" %>
 	<section>
@@ -27,7 +28,7 @@
 					<%
 						for(DmList l : list){
 					%>
-					<form action="DmHistoryUpdateDeleteView">
+					<form action="DmHistoryUpdateDeleteView" method="post">
 						<input type="hidden" value="<%= l.getDmno() %>" name="DMNO"/>
 						<tr>
 							<td><%= l.getDmno() %></td>
@@ -51,6 +52,18 @@
 							<input type="button" value="DM 발송 정보 등록" onClick="sendDmListRegister()"/>
 						</td>
 					</tr>
+				</table><br/>
+				<table border="1">
+					<%
+						for(DmList a : area){
+					%>
+						<tr>
+							<th><%= a.getArea() %></th>
+							<td><%= a.getAreaCount() %></td>
+						</tr>
+					<%	
+						}
+					%>
 				</table>
 		</div>
 	</section>

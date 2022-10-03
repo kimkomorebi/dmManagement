@@ -21,6 +21,11 @@ public class DmHistoryUpdateDeleteViewServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("EUC-KR");
 		String dmno = request.getParameter("DMNO");
 		String btn = request.getParameter("BTN");
 		DBExpert dbe = new DBExpert();
@@ -34,11 +39,6 @@ public class DmHistoryUpdateDeleteViewServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("dmHistoryDeleteView.jsp");
 			rd.forward(request, response);
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

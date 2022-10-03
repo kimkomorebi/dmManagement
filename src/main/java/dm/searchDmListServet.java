@@ -24,7 +24,9 @@ public class searchDmListServet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	DBExpert dbe = new DBExpert();
     	ArrayList<DmList> list = dbe.getDmList();
+    	ArrayList<DmList> area = dbe.areaList();
     	request.setAttribute("LIST", list);
+    	request.setAttribute("AREA", area);
     	RequestDispatcher rd = request.getRequestDispatcher("dmList.jsp");
     	rd.forward(request, response);
 	}
