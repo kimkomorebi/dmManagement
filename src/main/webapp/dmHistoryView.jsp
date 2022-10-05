@@ -22,7 +22,7 @@
 					</tr>
 					<tr>
 						<th>°í°´ID</th>
-						<td><input type="text" value="<%= dl.getCustid() %>" name="CUSTID"/></td>
+						<td><input type="text" value="<%= dl.getCustid() %>" name="CUSTID" readOnly="readOnly"/></td>
 					</tr>
 					<tr>
 						<th>°í°´¸í</th>

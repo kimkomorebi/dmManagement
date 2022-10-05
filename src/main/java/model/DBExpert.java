@@ -31,7 +31,7 @@ public class DBExpert {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			try {
+			try { 
 				rs.close(); pstmt.close(); con.close();
 			}catch(Exception e) {}
 		}
@@ -71,7 +71,7 @@ public class DBExpert {
 			con.commit();
 			result = true;
 		}catch(Exception e) {
-			
+			e.printStackTrace();
 		}finally {
 			try {
 				pstmt.close(); con.close();
@@ -81,16 +81,16 @@ public class DBExpert {
 	}
 	
 	public boolean updateDmlIstSecond(DmList dl) {
-		String update = "update bookinfo_tbl set custid = ?, author = ? where custid = ?";
+		String update = "update bookinfo_tbl set author = ? where custid = ?";
 		Connection con = null; PreparedStatement pstmt = null;
 		boolean result = false;
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, "hr", "hr");
 			pstmt = con.prepareStatement(update);
-			pstmt.setString(1, dl.getCustid());
-			pstmt.setString(2, dl.getAuthor());
-			pstmt.setString(3, dl.getCustid());
+			//pstmt.setString(1, dl.getCustid());
+			pstmt.setString(1, dl.getAuthor());
+			pstmt.setString(2, dl.getCustid());
 			pstmt.executeUpdate();
 			con.commit();
 			result = true;
@@ -322,7 +322,7 @@ public class DBExpert {
 	public ArrayList<DmList> getDmList(){
 		String select = "select d.dmno, d.custid, b.author, to_char(d.maildate, 'YYYY-MM-DD'), d.contents, d.campain"
 				+ " from dminfo_tbl d, bookinfo_tbl b"
-				+ " where d.custid = b.custid";
+				+ " where d.custid = b.custid order by d.dmno asc";
 		Connection con = null; PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<DmList> list = new ArrayList<DmList>();
